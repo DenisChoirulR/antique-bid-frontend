@@ -54,9 +54,14 @@ To run the frontend application, you need to make sure the backend server is up 
 The database seeder creates two roles: Admin and Regular users.
 
 Admin Credentials:
+
 admin1@example.com / admin1
+
 admin2@example.com / admin2
 
+
 Regular User Credentials:
+
 user1@example.com / user1
+
 user2@example.com / user2
