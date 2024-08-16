@@ -4,11 +4,6 @@ AntiqueBid Frontend is the user interface for the AntiqueBid auction application
 
 ## Installation
 
-### Prerequisites
-
-- Node.js (>= 14.x)
-- npm (>= 6.x) or Yarn
-
 ### Clone the Repository
 
 ```bash
@@ -52,5 +47,5 @@ To run the frontend application, you need to make sure the backend server is up 
 
 3. Start the frontend application:
    ```bash
-  npm run dev
-  ```
+   npm run dev
+   ```
