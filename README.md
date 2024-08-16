@@ -1,4 +1,4 @@
-# AntiqueBid Frontend
+# Antique-Bid Frontend
 
 AntiqueBid Frontend is the user interface for the AntiqueBid auction application. This frontend is built using React and Tailwind CSS, providing an intuitive and responsive experience for users to browse, bid, and manage antique items.
 
@@ -49,3 +49,14 @@ To run the frontend application, you need to make sure the backend server is up 
    ```bash
    npm run dev
    ```
+
+### Credentials
+The database seeder creates two roles: Admin and Regular users.
+
+Admin Credentials:
+admin1@example.com / admin1
+admin2@example.com / admin2
+
+Regular User Credentials:
+user1@example.com / user1
+user2@example.com / user2
