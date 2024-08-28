@@ -6,6 +6,7 @@ import ItemDetails from "../../Components/Items/ItemDetails";
 import BiddingHistory from "../../Components/Items/BiddingHistory";
 import BidPopup from "../../Components/Items/BidPopup";
 import AutoBidPopup from "../../Components/Items/AutoBidPopup";
+import Pusher from 'pusher-js';
 
 export default function Show() {
     const { id } = useParams();
@@ -21,6 +22,25 @@ export default function Show() {
     const [autoBidSuccess, setAutoBidSuccess] = useState(null);
     const [isBidPopupOpen, setIsBidPopupOpen] = useState(false);
     const [isAutoBidPopupOpen, setIsAutoBidPopupOpen] = useState(false);
+
+
+    useEffect(() => {
+        Pusher.logToConsole = true;
+        const pusher = new Pusher(import.meta.env.VITE_PUSHER_KEY, {
+            cluster: import.meta.env.VITE_PUSHER_CLUSTER,
+            encrypted: true,
+        });
+
+        const channel = pusher.subscribe('item-update');
+
+        channel.bind('item-update', (data) => {
+            getItem();
+        });
+
+        return () => {
+            pusher.unsubscribe('item-update');
+        };
+    }, []);
 
     async function getItem() {
         const res = await fetch(`/api/items/${id}`, {
