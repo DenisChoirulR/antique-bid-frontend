@@ -44,8 +44,17 @@ To run the frontend application, you need to make sure the backend server is up 
      }
    })
    ```
+3. Set up environment variables:
+   Update the .env file with your specific settings, including Pusher for real-time updates:
+   
+   ```bash
+   VITE_PUSHER_KEY=YOUR_KEY
+   VITE_PUSHER_CLUSTER=YOUR_CLUSTER
+   ```
 
-3. Start the frontend application:
+   If you don't have your own Pusher credentials, you can leave the default values provided in the .env file.
+ 
+5. Start the frontend application:
    ```bash
    npm run dev
    ```
