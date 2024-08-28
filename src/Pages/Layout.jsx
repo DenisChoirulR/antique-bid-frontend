@@ -23,7 +23,7 @@ export default function Layout() {
             });
             if (res.ok) {
                 const data = await res.json();
-                const unreadCount = data.data.filter(notification => notification.is_read === 0).length;
+                const unreadCount = data.data.filter(notification => notification.read_at === null).length;
                 setUnreadCount(unreadCount);
             }
         }
@@ -80,8 +80,12 @@ export default function Layout() {
 
                         {user && user.role !== 'admin' && (
                             <>
+                                <Link to="/bidding-overview" className="p-3 hover:bg-indigo-600 hover:text-white rounded-md transition-all cursor-pointer">
+                                    Bidding Overview
+                                </Link>
+
                                 <Link to="/bids" className="p-3 hover:bg-indigo-600 hover:text-white rounded-md transition-all cursor-pointer">
-                                    Bid History
+                                    Bid Activity
                                 </Link>
 
                                 <Link to="/notifications" className="relative p-3 hover:bg-indigo-600 hover:text-white rounded-md transition-all cursor-pointer">
@@ -129,6 +133,9 @@ export default function Layout() {
 
                         {user && user.role !== 'admin' && (
                             <>
+                                <Link to="/bidding-overview" className="list-none w-full text-center p-4 hover:bg-indigo-600 hover:text-white transition-all cursor-pointer">
+                                    Bidding Overview
+                                </Link>
                                 <Link to="/bids" className="list-none w-full text-center p-4 hover:bg-indigo-600 hover:text-white transition-all cursor-pointer">
                                     Bid History
                                 </Link>

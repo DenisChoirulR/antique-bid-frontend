@@ -13,6 +13,8 @@ import Update from "./Pages/Items/Update";
 import "./App.css";
 import BidHistory from "./Pages/Bids/BidHistory";
 import Notifications from "./Pages/Notification";
+import BidOverview from "./Pages/Bids/BidOverview";
+import Bill from "./Pages/Bids/Bill";
 
 export default function App() {
     const { user } = useContext(AppContext);
@@ -27,6 +29,8 @@ export default function App() {
                         <Route path="/items/:id" element={<Show />} />
                         <Route path="/items/:id/edit" element={<Update />} />
                         <Route path="/bids" element={<BidHistory />} />
+                        <Route path="/bidding-overview" element={<BidOverview />} />
+                        <Route path="/bill/:id" element={<Bill />} />
                         <Route path="/notifications" element={<Notifications />} />
                     </Route>
 
