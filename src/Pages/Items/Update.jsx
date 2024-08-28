@@ -67,6 +67,12 @@ export default function Update() {
         return `${year}-${month}-${day} ${hours}:${minutes}`;
     }
 
+    const formatDateForInput = (dateString) => {
+        const date = new Date(dateString);
+        const isoString = date.toISOString();
+        return isoString.slice(0, 16); // "yyyy-MM-ddThh:mm"
+    };
+
     async function handleUpdate(e) {
         e.preventDefault();
 
@@ -194,7 +200,7 @@ export default function Update() {
                     <input
                         type="datetime-local"
                         name="start_time"
-                        value={formData.start_time}
+                        value={formData.start_time ? formatDateForInput(formData.start_time) : ''}
                         onChange={handleInputChange}
                         className={`mt-1 block w-full px-3 py-2 border ${errors.start_time
                             ? "border-red-500"
@@ -211,7 +217,7 @@ export default function Update() {
                     <input
                         type="datetime-local"
                         name="end_time"
-                        value={formData.end_time}
+                        value={formData.end_time ? formatDateForInput(formData.end_time) : ''}
                         onChange={handleInputChange}
                         className={`mt-1 block w-full px-3 py-2 border ${errors.end_time ? "border-red-500" : "border-gray-300"
                             } rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500`}

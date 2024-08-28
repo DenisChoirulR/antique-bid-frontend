@@ -61,7 +61,9 @@ export default function ItemDetails({
                 </>
             ) : (
                 <div className="mt-8">
-                    <p className="text-red-600">The bidding is closed.</p>
+                    {user && user.role !== "admin" && (
+                        <p className="text-red-600">The bidding is closed.</p>
+                    )}
                 </div>
             )}
         </div>

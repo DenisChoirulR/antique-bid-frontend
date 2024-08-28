@@ -38,6 +38,23 @@ export default function Home() {
     const handleSortChange = (e) => { setSortBy(e.target.value); setCurrentPage(1); };
     const handleSortOrderChange = (e) => { setSortOrder(e.target.value); setCurrentPage(1); };
 
+    async function handleDelete(id) {
+        if (window.confirm("Are you sure you want to delete this item?")) {
+            const res = await fetch(`/api/items/${id}`, {
+                method: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            });
+
+            console.log(res);
+
+            if (res.ok) {
+                setItems(prevItems => prevItems.filter(item => item.id !== id));
+            }
+        }
+    }
+
     return (
         <div className="max-w-5xl mx-auto px-4 py-8">
             <div className="mb-4 flex flex-col md:flex-row gap-4">
