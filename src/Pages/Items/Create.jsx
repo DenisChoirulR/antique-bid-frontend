@@ -3,6 +3,9 @@ import { AppContext } from "../../Context/AppContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Create() {
+    const currDate = new Date().toLocaleTimeString();
+    console.log(currDate);
+
     const navigate = useNavigate();
     const { token, user } = useContext(AppContext);
     const [formData, setFormData] = useState({

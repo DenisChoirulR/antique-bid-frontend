@@ -2,6 +2,11 @@ import { Link } from "react-router-dom";
 import { format } from 'date-fns';
 
 export default function ItemCard({ item, user, onDelete, navigate }) {
+    const truncateText = (text, maxLength) => {
+        if (text.length <= maxLength) return text;
+        return text.slice(0, maxLength) + '...';
+    };
+
     return (
         <div className="flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl">
             <div className="mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-96">
@@ -21,7 +26,7 @@ export default function ItemCard({ item, user, onDelete, navigate }) {
                     </p>
                 </div>
                 <p className="block font-sans text-sm antialiased font-normal leading-normal text-gray-700 opacity-75 mb-4">
-                    {item.description}
+                    {truncateText(item.description, 100)}
                 </p>
                 <p className="block font-sans text-sm antialiased font-normal leading-normal text-gray-600">
                     Start Time: {format(new Date(item.start_time), 'PPP p')}

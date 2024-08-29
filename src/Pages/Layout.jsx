@@ -120,26 +120,26 @@ export default function Layout() {
                             </p>
                         )}
 
-                        <Link to="/" className="list-none w-full text-center p-4 hover:bg-indigo-600 hover:text-white transition-all cursor-pointer">
+                        <Link onClick={() => setIsMenuOpen(!isMenuOpen)} to="/" className="list-none w-full text-center p-4 hover:bg-indigo-600 hover:text-white transition-all cursor-pointer">
                             Home
                         </Link>
 
                         {/* Conditionally render Create Item link if user is an admin */}
                         {user && user.role === 'admin' && (
-                            <Link to="/items/create" className="list-none w-full text-center p-4 hover:bg-indigo-600 hover:text-white transition-all cursor-pointer">
+                            <Link onClick={() => setIsMenuOpen(!isMenuOpen)} to="/items/create" className="list-none w-full text-center p-4 hover:bg-indigo-600 hover:text-white transition-all cursor-pointer">
                                 Create Item
                             </Link>
                         )}
 
                         {user && user.role !== 'admin' && (
                             <>
-                                <Link to="/bidding-overview" className="list-none w-full text-center p-4 hover:bg-indigo-600 hover:text-white transition-all cursor-pointer">
+                                <Link onClick={() => setIsMenuOpen(!isMenuOpen)} to="/bidding-overview" className="list-none w-full text-center p-4 hover:bg-indigo-600 hover:text-white transition-all cursor-pointer">
                                     Bidding Overview
                                 </Link>
-                                <Link to="/bids" className="list-none w-full text-center p-4 hover:bg-indigo-600 hover:text-white transition-all cursor-pointer">
+                                <Link onClick={() => setIsMenuOpen(!isMenuOpen)} to="/bids" className="list-none w-full text-center p-4 hover:bg-indigo-600 hover:text-white transition-all cursor-pointer">
                                     Bid History
                                 </Link>
-                                <Link to="/notifications" className="relative list-none w-full text-center p-4 hover:bg-indigo-600 hover:text-white transition-all cursor-pointer">
+                                <Link onClick={() => setIsMenuOpen(!isMenuOpen)} to="/notifications" className="relative list-none w-full text-center p-4 hover:bg-indigo-600 hover:text-white transition-all cursor-pointer">
                                     Notifications
                                     {unreadCount > 0 && (
                                         <span className="absolute top-0 right-0 inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-600 rounded-full">

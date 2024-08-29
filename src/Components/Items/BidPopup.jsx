@@ -14,6 +14,7 @@ export default function BidPopup({ bidAmount, setBidAmount, placeBid, errors, se
                             className="w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-sm px-4 py-2"
                         />
                         {errors.bid_amount && <p className="text-red-500 text-xs mt-2">{errors.bid_amount}</p>}
+                        {errors.item_id && <p className="text-red-500 text-xs mt-2">{errors.item_id}</p>}
                     </div>
                     <button type="submit" className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded">
                         Submit Bid
